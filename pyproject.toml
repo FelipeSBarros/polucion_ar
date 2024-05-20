@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "polucion-ar"
+version = "0.1.0"
+description = "Proyecto para descargar y analizar datos de polucion en Argentina"
+authors = ["Felipe Sodré <felipe.b4rros@gmail.com>"]
+readme = "README.md"
+packages = [{include = "polucion_ar"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+cdsapi = "^0.7.0"
+python-dateutil = "^2.9.0.post0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
