@@ -1,40 +1,41 @@
-# Engolindo Fuamaca
+# Proyecto de análisis de datos de polución en Argentina
 
-Repo para organização dos dados para artigo.
+[Idea origina](https://github.com/FelipeSBarros/EngolindoFumaca_paper)
 
-1. [Crie o ambiente de trabalho](#criando-ambiente-de-trabalho)
-1. [Configurando acesso](#configurando-acesso)
-   1. Crie usuário para acessar ao [Atmospheric Data Store (ADS)](https://ads.atmosphere.copernicus.eu/#!/home). 
-   1. Identifique sua [chave](https://api.ecmwf.int/v1/key/).
-   1. Instale o [cdsapi](#instalando-o-cdsapi)
-1. [Baixe os dados](#usando-cdsapi)
-1. [Organize os dados baixados](#organizando-os-dados)
+1. [Creando el ambiente de trabajo](#creando-el-ambiente-de-trabajo)
+1. [Configuración de acceso](#configuración-de-acceso)
+   1. Crea usuário para acceder al [Atmospheric Data Store (ADS)](https://ads.atmosphere.copernicus.eu/#!/home). 
+   1. Identifica tu [clave](https://api.ecmwf.int/v1/key/).
+   1. Instala el [cdsapi](#instalando-el-cdsapi)
+1. [Descarga de datos](#descarga-de-datos)
+1. [Organización de los datos descargados](#organización-de-los datos-descargados)
 
-[Acesso aos dados publicos](https://confluence.ecmwf.int/display/WEBAPI/Access+ECMWF+Public+Datasets)
+[Acceso a los datos publicos](https://confluence.ecmwf.int/display/WEBAPI/Access+ECMWF+Public+Datasets)
 
-## Criando ambiente de trabalho
+## Creando el ambiente de trabajo
 
 ```commandline
-#mkdir EngolindoFumaca
-#cd EngolindoFumaca
+#mkdir polucion_ar
+#cd polucion_ar
 #git init
 #touch README.md
-git clone git@github.com:FelipeSBarros/EngolindoFumaca_paper.git
-cd EngolindoFumaca_paper
-python -m venv .venv
+git clone git@github.com:FelipeSBarros/polucion_ar.git
+cd polucin_ar
+#python -m venv .venv
+poetry install
 ```
 
-## configurando acesso
+## Configuración de acceso
 
-1. Criar o arquivo `.cdsapirc` e adicionar os [dados de acesso](https://ads.atmosphere.copernicus.eu/api-how-to) a ele:
-2. [Mais infos aqui](https://confluence.ecmwf.int/display/WEBAPI/Access+ECMWF+Public+Datasets)
+1. Crea el archivo `.cdsapirc` y añadelos datos [de aceso](https://ads.atmosphere.copernicus.eu/api-how-to):
+2. [Más infos](https://confluence.ecmwf.int/display/WEBAPI/Access+ECMWF+Public+Datasets)
 
 ```commandline
 touch ~/.cdsapirc
-# colocar infos de chave no arquivo
+# agregar infos de clave al archivo
 ```
 
-### instalando o cdsapi
+### instalando el cdsapi
 
 ```commandline
 pip install --upgrade pip
@@ -42,9 +43,9 @@ pip install cdsapi
 pip install python-dateutil
 ```
 
-### Usando cdsapi
+### Descarga de datos
 
-Exemplo de requisição usando o `cdsapi`:
+Ejemplo de requisición con el `cdsapi`:
 
 ```commandline
 import cdsapi
@@ -69,7 +70,7 @@ c.retrieve(
 ```
 
 #### parâmetro `area`
-Deve ser informado como uma lista de 4 elementos, sendo eles: latitude norte (max y), longitude oeste (min x), latitude sul (min x) e longitude leste (max x).
+Debe ser informada una lista con cuatro elementos: latitude norte (max y), longitude oeste (min x), latitude sul (min x) e longitude este (max x).
 
 ```python
 {
@@ -80,7 +81,7 @@ Deve ser informado como uma lista de 4 elementos, sendo eles: latitude norte (ma
 
 [**Script python usado**](./Download_pm25_monthly.py)
 
-## Organizando os dados
+## Organización de los datos descargados
 
 * unzip;
 [Script de organização dos dados](./organinzing_cams_data.py)
