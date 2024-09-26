@@ -11,7 +11,7 @@ mun <- read_sf("./Data/Vectorial/departamento_continente.shp") %>% st_transform(
 # Consolidating dates ----
 args(cams_consolidation)
 cams_consolidation(
-  file_path = "../../Data/Raw/CAMS_NRT/unzipped"
+  file_path = "./Data/Raw/CAMS_NRT/unzipped"
 )
 
 # Daily mean by mun sf ----

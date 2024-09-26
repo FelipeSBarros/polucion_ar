@@ -16,7 +16,7 @@ cams_consolidation <- function(file_path = "../../Data/Raw/CAMS_NRT/unzipped"){
         folderName_split[length(folderName_split)], '-')[[1]][1:2],
       '-')
     cat("Processing", year_month, '\n')
-    filePath <- paste0("../../Data/Raw/CAMS_NRT/", year_month)
+    filePath <- paste0(file_path, year_month)
     # creating filename
     filename_hourly <- paste0(filePath,"/", year_month, "_hourly.rds")
     cat(filename_hourly, " \n")

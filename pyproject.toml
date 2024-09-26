@@ -10,6 +10,11 @@ packages = [{include = "polucion_ar"}]
 python = "^3.10"
 cdsapi = "^0.7.0"
 python-dateutil = "^2.9.0.post0"
+rioxarray = "^0.15.5"
+pathlib = "^1.0.1"
+netcdf4 = "^1.6.5"
+scipy = "^1.13.0"
+matplotlib = "^3.9.0"
 
 
 [build-system]
